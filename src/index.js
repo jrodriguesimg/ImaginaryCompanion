@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import ExtensionPopup from './components/ExtensionPopup';
 import reportWebVitals from './reportWebVitals';
+
+const isChromeExt = (window.chrome && chrome.runtime && chrome.runtime.id !== undefined)
+
+const CurrentApp = (!isChromeExt ? ExtensionPopup : App);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CurrentApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
