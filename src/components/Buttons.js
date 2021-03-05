@@ -14,6 +14,8 @@ function Buttons({ slackUserInfo, handleLogout }) {
         return "lunch";
       case "brb":
         return "coffe break";
+      case "back":
+        return "back to work";
 
       default:
         alert("invalid message");
@@ -24,12 +26,12 @@ function Buttons({ slackUserInfo, handleLogout }) {
     const text = getMessageText(message);
     console.log(slackUserInfo);
     postMessage({
-      username: slackUserInfo.user.profile.display_name,
+      username: slackUserInfo.user.profile.real_name,
       text,
       channel: "#manager-darmstadiu-bromine",
       icon_url: slackUserInfo.user.profile.image_192,
     })
-      .then(() => alert(message))
+      //.then(() => alert(message))
       .catch((error) => alert(error.message));
   }
 
@@ -40,7 +42,7 @@ function Buttons({ slackUserInfo, handleLogout }) {
         alt="user"
         src={slackUserInfo.user.profile.image_192}
       />
-      <h1>Slack ID: {slackUserInfo.user.profile.display_name}</h1>
+      <h1>Slack ID: {slackUserInfo.user.profile.real_name}</h1>
       <div className="buttons-wrapper-wrapper">
         <div className="button-wrapper">
           <Button
@@ -62,6 +64,11 @@ function Buttons({ slackUserInfo, handleLogout }) {
             className="brb"
             text="Be right Back"
             onClick={() => handleMessage("brb")}
+          />
+          <Button
+            className="checkin"
+            text="Back"
+            onClick={() => handleMessage("back")}
           />
         </div>
       </div>
