@@ -22,8 +22,9 @@ function Buttons({ slackUserInfo, handleLogout }) {
 
   function handleMessage(message) {
     const text = getMessageText(message);
+    console.log(slackUserInfo);
     postMessage({
-      username: slackUserInfo.user.profile.full_name,
+      username: slackUserInfo.user.profile.display_name,
       text,
       channel: "#manager-darmstadiu-bromine",
       icon_url: slackUserInfo.user.profile.image_192,
