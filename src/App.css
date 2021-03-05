@@ -16,15 +16,27 @@ html, body {
   justify-content: center;
 }
 
-.App-logo {
+.App.ChromeExtension{
+  border-radius: 21px;
+  height: 370px;
+  width:350px
+}
+
+
+.App:not(.ChromeExtension) .App-logo {
+  display: none;
   position: fixed;
   left: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+.App:not(.ChromeExtension) .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.App.ChromeExtension .App-header {
+  display: none;
 }
 
 .App-header {
@@ -58,6 +70,10 @@ html, body {
   height: 347px;
   margin: 0 auto;
   padding: 15px;
+}
+
+.App.ChromeExtension .card {
+  border-radius: 0;
 }
 
 .input-wrapper {
