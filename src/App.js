@@ -5,8 +5,9 @@ import Buttons from "./components/Buttons";
 import "./App.css";
 
 function App() {
-  let [isAuth, setIsAuth] = useState(false);
-  let [slackUserId, setSlackUserId] = useState("");
+  let [isAuth, setIsAuth] = useState(false)
+  let [slackUserId, setSlackUserId] = useState('')
+  let [isChromeExt] = useState(window.chrome && chrome.runtime && chrome.runtime.id !== undefined)
 
   let handleChange = (event) => {
     setSlackUserId(event.target.value);
@@ -22,7 +23,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={isChromeExt ? 'App ChromeExtension' : 'App'}>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>IMAGINARY CLOUD WORK COMPANION</p>

@@ -3,8 +3,8 @@
   "name": "Imaginary Cloud Companion App 2021",
   "icons": {
     "16": "favicon.ico",
-    "48": "logo192.png",
-    "128": "logo512.png"
+    "48": "blue-logo.png",
+    "128": "blue-logo.png"
   },
   "start_url": ".",
   "display": "standalone",
