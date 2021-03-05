@@ -1,23 +1,37 @@
 import Button from "./Buttons/Button.js";
 import "./Buttons.css";
 
+import { postMessage } from "../api/messages";
+
 function Buttons({ slackUserInfo, handleLogout }) {
-  function handleMessage(message) {
-    // TODO: call api
+  function getMessageText(message) {
     switch (message) {
       case "checkin":
-        return alert("checkin");
+        return "morning";
       case "leaving":
-        return alert("leaving");
+        return "heading out";
       case "lunch":
-        return alert("lunch");
+        return "lunch";
       case "brb":
-        return alert("brb");
+        return "coffe break";
 
       default:
         alert("invalid message");
     }
   }
+
+  function handleMessage(message) {
+    const text = getMessageText(message);
+    postMessage({
+      username: slackUserInfo.user.profile.full_name,
+      text,
+      channel: "#manager-darmstadiu-bromine",
+      icon_url: slackUserInfo.user.profile.image_192,
+    })
+      .then(() => alert(message))
+      .catch((error) => alert(error.message));
+  }
+
   return (
     <div className="buttons-page">
       <img
