@@ -28,3 +28,13 @@
 .button-wrapper > .Button {
     margin-bottom: 20px;
 }
+
+.ChromeExtension .buttons-page{
+    padding-top: 100px;
+    background: hsla(0,0%,100%,.83);
+}
+
+.ChromeExtension .buttons-user-img{
+    border-radius: 21px;
+    width: 100px;
+}
