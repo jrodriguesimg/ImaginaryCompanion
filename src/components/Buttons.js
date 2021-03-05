@@ -1,4 +1,4 @@
-function Login({ slackUserId, handleLogout }) {
+function Login({ slackUserInfo, handleLogout }) {
   function handleMessage(message) {
     // TODO: call api
     switch (message) {
@@ -17,7 +17,8 @@ function Login({ slackUserId, handleLogout }) {
   }
   return (
     <div className="buttons-wrapper">
-      <h1>Slack ID: {slackUserId}</h1>
+      <img alt="user" src={slackUserInfo.user.profile.image_192} />
+      <h1>Slack ID: {slackUserInfo.user.profile.display_name}</h1>
       <button class="message-button" onClick={() => handleMessage("checkin")}>
         Checkin
       </button>

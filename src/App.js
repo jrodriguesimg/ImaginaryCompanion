@@ -3,16 +3,24 @@ import { useState } from "react";
 import Login from "./components/Login";
 import Buttons from "./components/Buttons";
 import "./App.css";
+import { getUserInfo} from './api/users'
 
 function App() {
   let [isAuth, setIsAuth] = useState(false);
   let [slackUserId, setSlackUserId] = useState("");
+  let [slackUserInfo, setSlackUserInfo] = useState();
 
   let handleChange = (event) => {
     setSlackUserId(event.target.value);
   };
 
-  let handleClick = () => {
+  let handleClick = async () => {
+    try {
+      const userInfo = await getUserInfo(slackUserId) 
+      setSlackUserInfo(userInfo)
+    } catch {
+      return alert('Invalid User ID')
+    }
     setIsAuth(true);
   };
 
@@ -28,7 +36,7 @@ function App() {
         <p>IMAGINARY CLOUD WORK COMPANION</p>
       </header>
       {isAuth ? (
-        <Buttons slackUserId={slackUserId} handleLogout={handleLogout} />
+        <Buttons slackUserId={slackUserId} slackUserInfo={slackUserInfo} handleLogout={handleLogout} />
       ) : (
         <Login handleClick={handleClick} handleChange={handleChange} />
       )}
