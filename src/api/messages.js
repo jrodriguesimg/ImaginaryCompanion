@@ -1,14 +1,3 @@
-import HttpClient from './utils/http-client'
+import SlackClient from './utils/slack-client'
 
-export const postMessage = ({username, text, channel, icon_url}) => {
-  return HttpClient().request({
-    method: 'post',
-    url: '/chat.postMessage',
-    params: {
-      username,
-      text,
-      channel,
-      icon_url
-    }
-  })
-}
+export const postMessage = ({username, text, channel, icon_url}) => SlackClient.chat.postMessage({username, text, channel, icon_url});
