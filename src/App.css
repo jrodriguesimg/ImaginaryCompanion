@@ -18,7 +18,8 @@ html, body {
 
 .App.ChromeExtension{
   border-radius: 21px;
-  height: auto;
+  height: 370px;
+  width:350px
 }
 
 
