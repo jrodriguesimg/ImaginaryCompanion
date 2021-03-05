@@ -59,6 +59,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
+        "icon": "public/electron-logo/icons/mac/icon.icns",
         "name": "Imaginary Companion"
       },
       "makers": [
