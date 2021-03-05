@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import logo from './images/logo.svg';
+import {useState} from 'react'
+import Login from './components/Login'
 import './App.css';
 
+
 function App() {
+  let [isAuth, setIsAuth] = useState(false)
+  let [slackUserId, setSlackUserId] = useState('')
+
+  let handleChange = (event) => {
+    setSlackUserId(event.target.value)
+  }
+
+  let handleClick = () => {
+    setIsAuth(true)
+  }
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>IMAGINARY CLOUD WORK COMPANION</p>
       </header>
+      {
+        isAuth ? <div>{slackUserId}</div> : <Login handleClick={handleClick} handleChange={handleChange} />
+      }
     </div>
   );
 }
