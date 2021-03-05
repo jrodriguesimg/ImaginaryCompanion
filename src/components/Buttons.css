@@ -1,0 +1,30 @@
+.buttons-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttons-user-img {
+    width: 200px;
+}
+
+.buttons-wrapper-wrapper {
+    display: flex;
+    justify-content: center;
+}
+  
+  
+.button-wrapper {
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.button-wrapper > .Button:not(last-child) {
+    margin-right: 20px;
+}
+
+.button-wrapper > .Button {
+    margin-bottom: 20px;
+}

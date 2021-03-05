@@ -109,16 +109,3 @@ html, body {
     transform: rotate(360deg);
   }
 }
-
-
-.buttons-wrapper-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-
-.button-wrapper {
-  width: 80%;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}

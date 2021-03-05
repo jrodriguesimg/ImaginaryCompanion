@@ -1,4 +1,5 @@
 import Button from "./Buttons/Button.js";
+import "./Buttons.css";
 
 function Buttons({ slackUserInfo, handleLogout }) {
   function handleMessage(message) {
@@ -18,8 +19,12 @@ function Buttons({ slackUserInfo, handleLogout }) {
     }
   }
   return (
-    <>
-      <img alt="user" src={slackUserInfo.user.profile.image_192} />
+    <div className="buttons-page">
+      <img
+        className="buttons-user-img"
+        alt="user"
+        src={slackUserInfo.user.profile.image_192}
+      />
       <h1>Slack ID: {slackUserInfo.user.profile.display_name}</h1>
       <div className="buttons-wrapper-wrapper">
         <div className="button-wrapper">
@@ -45,7 +50,7 @@ function Buttons({ slackUserInfo, handleLogout }) {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
