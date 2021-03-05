@@ -1,12 +1,3 @@
-import HttpClient from './utils/http-client'
+import SlackClient from './utils/slack-client'
 
-export const getUserInfo= (id) => {
-  return HttpClient().request({
-    method: 'post',
-    url: '/users.info',
-    params: {
-      user: id,
-      pretty: 1 // RETURNS A READABLE JSON
-    }
-  })
-}
+export const getUserInfo= (id) => SlackClient.users.info({user: id, pretty: 1});
