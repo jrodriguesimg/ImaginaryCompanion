@@ -1,4 +1,6 @@
-function Login({ slackUserInfo, handleLogout }) {
+import Button from "./Buttons/Button.js";
+
+function Buttons({ slackUserInfo, handleLogout }) {
   function handleMessage(message) {
     // TODO: call api
     switch (message) {
@@ -16,26 +18,35 @@ function Login({ slackUserInfo, handleLogout }) {
     }
   }
   return (
-    <div className="buttons-wrapper">
+    <>
       <img alt="user" src={slackUserInfo.user.profile.image_192} />
       <h1>Slack ID: {slackUserInfo.user.profile.display_name}</h1>
-      <button class="message-button" onClick={() => handleMessage("checkin")}>
-        Checkin
-      </button>
-      <button class="message-button" onClick={() => handleMessage("leaving")}>
-        Leaving
-      </button>
-      <button class="message-button" onClick={() => handleMessage("lunch")}>
-        Lunch
-      </button>
-      <button class="message-button" onClick={() => handleMessage("brb")}>
-        Be rigth back
-      </button>
-      <button class="message-button" onClick={handleLogout}>
-        logout
-      </button>
-    </div>
+      <div className="buttons-wrapper-wrapper">
+        <div className="button-wrapper">
+          <Button
+            className="checkin"
+            text="Checkin"
+            onClick={() => handleMessage("checkin")}
+          />
+          <Button
+            className="leaving"
+            text="Leaving"
+            onClick={() => handleMessage("leaving")}
+          />
+          <Button
+            className="lunch"
+            text="Lunch"
+            onClick={() => handleMessage("lunch")}
+          />
+          <Button
+            className="brb"
+            text="Be right Back"
+            onClick={() => handleMessage("brb")}
+          />
+        </div>
+      </div>
+    </>
   );
 }
 
-export default Login;
+export default Buttons;
